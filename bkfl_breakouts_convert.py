@@ -1,27 +1,12 @@
-import csv, tabula, requests
-from datetime import date, timedelta
-
-#DECLARATIONS
-file_url = "https://www.nwmls.com/library/CorporateContent/statistics/KCBreakouts.pdf"
-
-today = date.today()
-first_day = today.replace(day=1)
-last_month = first_day - timedelta(days=1)
-month_date = last_month.strftime("%b-%Y")
-load_month = last_month.strftime("%b")
-
-pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month)
-#GET PDF FILE
-r = requests.get(file_url, stream = True) 
-  
-with open(pdf_all,"wb") as pdf: 
-    for chunk in r.iter_content(chunk_size=1024): 
-         # writing one chunk at a time to pdf file 
-         if chunk: 
-             pdf.write(chunk)
-
-
 #WRITE PDF FILE TO CSV
+import csv, tabula
+
+
+
+load_month = 'Aug'
+month_date = 'Aug-2019'
+pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month)
+
 for page_num in range(1,4):
 
     pdf_dir = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\'
@@ -56,10 +41,8 @@ for page_num in range(1,4):
             row2 = [r.replace('%', '').replace('"', '') for r in row]
             if len(row2[0]) == 3:
                 row2.insert(0,month_date)
-                # row = [r.replace('%', '').replace('"', '') for r in row]
                 records.append(row2)
-                # print(type(row[0]), len(row[0]),row[0])
-                # print(row)
+
     #WRITE PREPED DATA TO FILE
     with open(out_file, mode='w', newline='') as real_estate_file:
         realestate_writer = csv.writer(real_estate_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
