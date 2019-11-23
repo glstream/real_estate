@@ -7,7 +7,7 @@ from datetime import date, timedelta
 db = mysql.connector.connect(
   host="localhost",
   user="root",
-  passwd="Kappa349!",
+  passwd=",
   db="real_estate"
 )
 print('Connected to database \n')
