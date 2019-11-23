@@ -5,8 +5,8 @@ from priv import *
 #configs for database
 
 db = mysql.connector.connect(
-  host="localhost",
-  user="root",
+  host=host,
+  user=user,
   passwd=pass,
   db="real_estate"
 )

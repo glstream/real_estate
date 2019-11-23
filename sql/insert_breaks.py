@@ -5,8 +5,8 @@ from datetime import date, timedelta
 #configs for database
 
 db = mysql.connector.connect(
-  host="localhost",
-  user="root",
+  host=host,
+  user=user,
   passwd=grantPass,
   db="real_estate"
 )
