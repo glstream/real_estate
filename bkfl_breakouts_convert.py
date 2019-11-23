@@ -3,8 +3,8 @@ import csv, tabula
 
 
 
-load_month = 'Aug'
-month_date = 'Aug-2019'
+load_month = 'Sep'
+month_date = 'Sep-2019'
 pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month)
 
 for page_num in range(1,4):
