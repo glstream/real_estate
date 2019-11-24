@@ -30,7 +30,7 @@ cur = db.cursor()
 def message():
   up_chart = b'\xF0\x9F\x93\x88'
   down_chart = b'\xF0\x9F\x93\x89'
-  even = b'	\xE2\x86\x94'
+  even = b'\xE2\x86\x94'
   message_list = []
   for res in responses:
     if '-' in str(res[1]):
@@ -64,18 +64,25 @@ for table in table_list:
     tweet_table = 'Condo'
   else:
     tweet_table = 'Res+Condo'
-  messages = message()
-  top_part = "OCT 2019 \n YoY Median {} Prices:".format(tweet_table)
+
+  top_part = "OCT 2019 \nYoY Median {} Prices:".format(tweet_table)
   bottom_part = '#Seattle #seattlerealestate #realestate'
-  formatted_message = ("{}\n".format(top_part)
-                      "{0} {1}{2}% {3}\n ".format(message()[0][3].decode(), message()[0][2], message()[0][1],message()[0][0])
-                      "{0} {1}{2}% {3}\n ".format(message()[1][3].decode(), message()[1][2], message()[1][1],message()[1][0])
-                      "{0} {1}{2}% {3}\n ".format(message()[2][3].decode(), message()[2][2], message()[2][1],message()[2][0])
-                      "{0} {1}{2}% {3}\n ".format(message()[3][3].decode(), message()[3][2], message()[3][1],message()[3][0])
-                      "{0} {1}{2}% {3}\n ".format(message()[4][3].decode(), message()[4][2], message()[4][1],message()[4][0])
-                      "{0} {1}{2}% {3}\n ".format(message()[5][3].decode(), message()[5][2], message()[5][1],message()[5][0])
-                      "{}".format(bottom_part)
-  )
+  w_seattle = "{0} {1}{2}% {3}".format(message()[0][3].decode(), message()[0][2], message()[0][1],message()[0][0])
+  se_seattle = "{0} {1}{2}% {3}".format(message()[1][3].decode(), message()[1][2], message()[1][1],message()[1][0])
+  sw_seattle = "{0} {1}{2}% {3}".format(message()[2][3].decode(), message()[2][2], message()[2][1],message()[2][0])
+  cap_seattle = "{0} {1}{2}% {3}".format(message()[3][3].decode(), message()[3][2], message()[3][1],message()[3][0])
+  queen_anne = "{0} {1}{2}% {3}".format(message()[4][3].decode(), message()[4][2], message()[4][1],message()[4][0])
+  ballard = "{0} {1}{2}% {3}".format(message()[5][3].decode(), message()[5][2], message()[5][1],message()[5][0])
+  
+  formatted_message = ("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}\n{7}".format(top_part
+                                                            ,w_seattle
+                                                            ,se_seattle
+                                                            ,sw_seattle
+                                                            ,cap_seattle
+                                                            ,queen_anne
+                                                            ,ballard
+                                                            ,bottom_part))
+  print(formatted_message)
 
   twitter.update_status(status=formatted_message)
   print("Tweeted: %s" % formatted_message)
