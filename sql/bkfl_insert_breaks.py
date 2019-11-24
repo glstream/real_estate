@@ -21,9 +21,9 @@ load_month = last_month.strftime("%b")
 
 print(load_month)
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = '.././data/PUB/'
-bkfl_load_month = ['Oct']
-files = ['KCBreakouts_{}_CONDO.txt', 'KCBreakouts_{}_RES_CONDO.txt', 'KCBreakouts_{}_RES.txt']
+pub_real_dir = '.././data/PUB'
+bkfl_load_month = 'Oct'
+files = ['KCBreakouts_{}_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES.txt'.format(bkfl_load_month)]
 
 for file in files:
     target_dir = "{}/{}".format(pub_real_dir, file)
