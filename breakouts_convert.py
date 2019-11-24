@@ -1,5 +1,6 @@
-import csv, tabula, requests
+import csv, tabula, requests, sys
 from datetime import date, timedelta
+from OS_NAME_PATHS import *
 
 #DECLARATIONS
 file_url = "https://www.nwmls.com/library/CorporateContent/statistics/KCBreakouts.pdf"
@@ -10,7 +11,7 @@ last_month = first_day - timedelta(days=1)
 month_date = last_month.strftime("%b-%Y")
 load_month = last_month.strftime("%b")
 
-pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month)
+pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month) if (sys.platform == 'win32') else "./pdfs/KCBreakouts_{}.pdf" 
 #GET PDF FILE
 r = requests.get(file_url, stream = True) 
   
@@ -24,9 +25,9 @@ with open(pdf_all,"wb") as pdf:
 #WRITE PDF FILE TO CSV
 for page_num in range(1,4):
 
-    pdf_dir = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\'
-    raw_dir = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\data\\RAW\\'
-    out_dir = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\data\\PUB\\'
+    pdf_dir = pdf_dir
+    raw_dir = raw_dir
+    out_dir = out_dir
 
     if page_num == 1:
         pdf_file = "KCBreakouts_{}_RES_CONDO.pdf".format(load_month)

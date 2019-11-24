@@ -1,6 +1,7 @@
 import mysql.connector
 import sys, csv, os
 from datetime import date, timedelta
+from priv import *
 
 #configs for database
 
@@ -21,11 +22,11 @@ load_month = last_month.strftime("%b")
 
 
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\data\\PUB\\'
+pub_real_dir = '.././data/PUB/'
 
 for (dirs, subDir, files) in os.walk(pub_real_dir):
   for file in files:
-    target_dir = "{}\\{}".format(pub_real_dir, file)
+    target_dir = "{}/{}".format(pub_real_dir, file)
     if load_month not in target_dir:
       print(target_dir)
       if 'RES_CONDO.txt' in file:

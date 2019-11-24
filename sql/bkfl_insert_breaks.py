@@ -21,11 +21,11 @@ load_month = last_month.strftime("%b")
 
 print(load_month)
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\data\\PUB\\'
+pub_real_dir = '.././data/PUB/'
 files = ['KCBreakouts_Sep_CONDO.txt', 'KCBreakouts_Sep_RES_CONDO.txt', 'KCBreakouts_Sep_RES.txt']
 
 for file in files:
-    target_dir = "{}\\{}".format(pub_real_dir, file)
+    target_dir = "{}/{}".format(pub_real_dir, file)
     print(target_dir)
     if load_month not in target_dir:
         print(target_dir)
