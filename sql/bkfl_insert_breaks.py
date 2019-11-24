@@ -7,7 +7,7 @@ from priv import *
 db = mysql.connector.connect(
   host=host,
   user=user,
-  passwd=pass,
+  passwd=grantPass,
   db="real_estate"
 )
 print('Connected to database \n')
