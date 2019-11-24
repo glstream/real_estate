@@ -77,7 +77,7 @@ for table in table_list:
                       "{}".format(bottom_part)
   )
 
-  twitter.update_status(status=formatted_message)
+  # twitter.update_status(status=formatted_message)
   print("Tweeted: %s" % formatted_message)
 
 
