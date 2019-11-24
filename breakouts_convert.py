@@ -11,7 +11,14 @@ last_month = first_day - timedelta(days=1)
 month_date = last_month.strftime("%b-%Y")
 load_month = last_month.strftime("%b")
 
-pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month) if (sys.platform == 'win32') else "/home/pi/Documents/project-file/real_estate/pdfs/KCBreakouts_{}.pdf".format(load_month)  
+r = requests.get(file_url, stream = True) 
+
+if sys.platform == 'win32':
+    pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month) 
+elif sys.platform == 'darwin':
+    pdf_all = "/Users/glstream/Documents/GitHub/home_prices/real_estate/pdfs/KCBreakouts_{}.pdf".format(load_month)
+elif sys.platform == 'linux':
+    pdf_all  = "/home/pi/Documents/project-file/real_estate/pdfs/KCBreakouts_{}.pdf".format(load_month)  
 #GET PDF FILE
 r = requests.get(file_url, stream = True) 
   
