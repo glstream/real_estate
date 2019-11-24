@@ -22,7 +22,7 @@ load_month = last_month.strftime("%b")
 print(load_month)
 table_list = ['res, res_condo', 'condo']
 pub_real_dir = '.././data/PUB'
-bkfl_load_month = 'Oct'
+bkfl_load_month = sys.argv[1]
 files = ['KCBreakouts_{}_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES.txt'.format(bkfl_load_month)]
 
 for file in files:

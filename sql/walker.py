@@ -1,4 +1,4 @@
-import os 
+import os, sys
 
 tuple_list = [('W Seattle', 2.0, '+', b'\xf0\x9f\x93\x88'), 
 ('Central Seattle SE, Leshi, Mt Baker', 22.1, '+', b'\xf0\x9f\x93\x88'), 
@@ -22,8 +22,5 @@ tuple_list = [('W Seattle', 2.0, '+', b'\xf0\x9f\x93\x88'),
  ('Ballard, Greenlake', -5.7, '', b'\xf0\x9f\x93\x89'), 
  ('N Seattle', 1.5, '+', b'\xf0\x9f\x93\x88')]
 
-t = tuple_list
-
-for i in tuple_list:
-    print(i[0])
+print(type(sys.argv[1]))
 
