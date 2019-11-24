@@ -19,9 +19,9 @@ twitter = Twython(
 #configs for database
 
 db = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="Kappa349!",
+  host=host,
+  user=user,
+  passwd=grantPass",
   db="real_estate"
 )
 print('Connected to database \n')
