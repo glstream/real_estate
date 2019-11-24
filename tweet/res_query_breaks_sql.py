@@ -67,14 +67,14 @@ for table in table_list:
   messages = message()
   top_part = "OCT 2019 \n YoY Median {} Prices:".format(tweet_table)
   bottom_part = '#Seattle #seattlerealestate #realestate'
-  formatted_message = (f"{top_part}\n"
-                      f"{message()[0][3].decode()} {message()[0][2]}{message()[0][1]}% {message()[0][0]}\n"
-                      f"{message()[1][3].decode()} {message()[1][2]}{message()[1][1]}% {message()[1][0]}\n"
-                      f"{message()[2][3].decode()} {message()[2][2]}{message()[2][1]}% {message()[2][0]}\n"
-                      f"{message()[3][3].decode()} {message()[3][2]}{message()[3][1]}% {message()[3][0]}\n"
-                      f"{message()[4][3].decode()} {message()[4][2]}{message()[4][1]}% {message()[4][0]}\n"
-                      f"{message()[5][3].decode()} {message()[5][2]}{message()[5][1]}% {message()[5][0]}\n"
-                      f"{bottom_part}"
+  formatted_message = ("{}\n".format(top_part)
+                      "{0} {1}{2}% {3}\n ".format(message()[0][3].decode(), message()[0][2], message()[0][1],message()[0][0])
+                      "{0} {1}{2}% {3}\n ".format(message()[1][3].decode(), message()[1][2], message()[1][1],message()[1][0])
+                      "{0} {1}{2}% {3}\n ".format(message()[2][3].decode(), message()[2][2], message()[2][1],message()[2][0])
+                      "{0} {1}{2}% {3}\n ".format(message()[3][3].decode(), message()[3][2], message()[3][1],message()[3][0])
+                      "{0} {1}{2}% {3}\n ".format(message()[4][3].decode(), message()[4][2], message()[4][1],message()[4][0])
+                      "{0} {1}{2}% {3}\n ".format(message()[5][3].decode(), message()[5][2], message()[5][1],message()[5][0])
+                      "{}".format(bottom_part)
   )
 
   twitter.update_status(status=formatted_message)
