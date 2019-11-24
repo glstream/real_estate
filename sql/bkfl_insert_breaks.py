@@ -1,5 +1,5 @@
 import mysql.connector
-import sys, csv, os
+import sys, csv, os, sys
 from datetime import date, timedelta
 from priv import *  
 #configs for database
@@ -21,7 +21,7 @@ load_month = last_month.strftime("%b")
 
 print(load_month)
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = '/home/pi/Documents/project-file/real_estate/data/PUB/'
+pub_real_dir = '/home/pi/Documents/project-file/real_estate/data/PUB' if sys.platform == 'linux' else 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\data\\PUB'
 bkfl_load_month = 'Oct'
 files = ['KCBreakouts_{}_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES.txt'.format(bkfl_load_month)]
 
