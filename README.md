@@ -3,6 +3,7 @@
   NWMLS Real Estate Data Project
 <h1/>
 
-This is a project pulls NWMLS data at the regional level down into a mysql data base. Then analytical queries are applaied and gthe resulst are sent out to twitter via the twitter API.
+This is a project pulls NWMLS data at the regional level down into a mysql data base. Then analytical queries are applaied and the resulst are sent out to twitter via the twitter API.
 
+![alt text](https://github.com/glstream/real_estate/blob/master/diagram/Real_estate.png)
 
