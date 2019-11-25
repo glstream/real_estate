@@ -27,7 +27,7 @@ pub_real_dir = '.././data/PUB/'
 for (dirs, subDir, files) in os.walk(pub_real_dir):
   for file in files:
     target_dir = "{}/{}".format(pub_real_dir, file)
-    if load_month not in target_dir:
+    if load_month in target_dir:
       print(target_dir)
       if 'RES_CONDO.txt' in file:
         table = 'res_condo'

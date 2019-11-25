@@ -1,5 +1,5 @@
 import mysql.connector
-import sys, csv, os
+import sys, csv, os, sys
 from datetime import date, timedelta
 from priv import *  
 #configs for database
@@ -21,13 +21,14 @@ load_month = last_month.strftime("%b")
 
 print(load_month)
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = '.././data/PUB/'
-files = ['KCBreakouts_Sep_CONDO.txt', 'KCBreakouts_Sep_RES_CONDO.txt', 'KCBreakouts_Sep_RES.txt']
+pub_real_dir = '.././data/PUB'
+bkfl_load_month = sys.argv[1]
+files = ['KCBreakouts_{}_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES.txt'.format(bkfl_load_month)]
 
 for file in files:
     target_dir = "{}/{}".format(pub_real_dir, file)
     print(target_dir)
-    if load_month not in target_dir:
+    if 1 == 1:
         print(target_dir)
         if 'RES_CONDO.txt' in file:
             table = 'res_condo'
