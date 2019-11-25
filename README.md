@@ -1,7 +1,4 @@
-# real_estate
-
-  NWMLS Real Estate Data Project
-
+## NWMLS Real Estate Data Project
 
 This is a project pulls NWMLS data at the regional level down into a mysql data base. Then analytical queries are applaied and the resulst are sent out to twitter via the twitter API.
 
