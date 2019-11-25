@@ -1,1 +1,8 @@
 # real_estate
+<h1>
+  NWMLS Real Estate Data Project
+<h1/>
+ <p>
+This is a project pulls NWMLS data at the regional level down into a mysql data base. Then analytical queries are applaied and gthe resulst are sent out to twitter via the twitter API.</p>
+  <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;www.draw.io\&quot; modified=\&quot;2019-11-25T01:12:31.225Z\&quot; agent=\&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36\&quot; etag=\&quot;DgCBE6YYmgpSYX9ZKrhd\&quot; version=\&quot;12.2.9\&quot; type=\&quot;device\&quot; pages=\&quot;1\&quot;&gt;&lt;diagram id=\&quot;ZK56pVX_8g0AqG9ZSvAE\&quot; name=\&quot;Page-1\&quot;&gt;vZVLU+MwDMc/TY7L5NFAOUJ5LAdmdjYHHhfGE4vEO06dcVSS7qdHwcq7TOHCqdLfsiz/JKdetCmaWyvK/N5I0F7oy8aLrrwwDIL1Kf20yt4pZ6vACZlVkoMGIVH/gUWf1Z2SUE0C0RiNqpyKqdluIcWJJqw19TTs1ejpqaXIYCEkqdBL9UFJzJ26jv1B/w0qy7uTA59XCtEFs1DlQpp6JEXXXrSxxqCzimYDuoXXcXH7bj5Z7QuzsMWvbPgbW4PlKrmVl88vd8HD5l/y/IuzvAm94wtzsbjvCFAWgk3OZZ0rhKQUabtSU79Jy7HQ5AVkciqwCM2nNQb9zWlkwBSAdk8hvOGMWfGwhB3MekAfdDzzEfY1a4K7nfWZByBkMJNv8AmP86G+lq1p7I8giuIZo3DJ6PQnEUVfGKGtvGjfInmpFlWlUmJRobC4lEe0oFH4OLKfyPZPYvauWiB+5+zZcWeDXLzqGV+qz+xsCsffBpWZAR6bkWW/Rv2ID/Sj0yxogeptWu6hJvEJf4yii/TjEEazcTif9dldk3eNPw/zROtZotUskeOwSPQxM/21D40RucNXzoUP/xXR9Ts=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
