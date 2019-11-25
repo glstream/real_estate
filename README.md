@@ -18,5 +18,5 @@ NWMLS publishes regional level Year over Year home closing data for residential 
 ### Regional Map:
 ![alt text](https://github.com/glstream/real_estate/blob/master/images/regions.png)
 
-### End result
+### Example Tweet:
 ![alt text](https://github.com/glstream/real_estate/blob/master/images/tweet.png)
