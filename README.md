@@ -11,8 +11,6 @@ NWMLS publishes regional level Year over Year home closing data for residential 
 4. Analytical queryes are applied to the database.
 5. Results from the queries are sent to twitter via the twitter api, custom emojis are programatically added to the tweet based on the preformance of the region over the past year. 
 
-Twitter Account-> https://twitter.com/pnw_homevalues
-
 
 ![alt text](https://github.com/glstream/real_estate/blob/master/images/Real_estate.png)
 
@@ -22,4 +20,5 @@ Twitter Account-> https://twitter.com/pnw_homevalues
 ![alt text](https://github.com/glstream/real_estate/blob/master/images/regions.png)
 
 ### Example Tweet:
+Twitter Account-> https://twitter.com/pnw_homevalues
 ![alt text](https://github.com/glstream/real_estate/blob/master/images/tweet.png)
