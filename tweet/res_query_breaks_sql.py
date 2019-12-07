@@ -8,6 +8,7 @@ today = date.today()
 first_day = today.replace(day=1)
 last_month = first_day - timedelta(days=1)
 month_date = last_month.strftime("%b-%Y")
+tweet_date = last_month.strftime("%b")
 
 twitter = Twython(
     consumer_key,
@@ -65,7 +66,7 @@ for table in table_list:
   else:
     tweet_table = 'Res+Condo'
 
-  top_part = "OCT 2019 \nYoY Median {} Prices:".format(tweet_table)
+  top_part = "{} 2019 \nYoY Median {} Prices:".format(tweet_date,tweet_table)
   bottom_part = '#Seattle #seattlerealestate #realestate'
   w_seattle = "{0} {1}{2}% {3}".format(message()[0][3].decode(), message()[0][2], message()[0][1],message()[0][0])
   se_seattle = "{0} {1}{2}% {3}".format(message()[1][3].decode(), message()[1][2], message()[1][1],message()[1][0])

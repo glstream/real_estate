@@ -54,15 +54,19 @@ for page_num in range(1,4):
     out_file = out_dir + out
 
     # tables = tabula.read_pdf(pdf_all, pages = str(page_num), multiple_tables = True)
-    tabula.convert_into(pdf_all, raw_file, pages=str(page_num))
+    tabula.convert_into(pdf_all, raw_file, lattice=True, output_format="csv", pages=str(page_num))
 
     #CLEAN AND PREP CSV FILE
     with open(raw_file, 'r') as csv_file:
+        print(raw_file)
         csv_reader = csv.reader(csv_file, delimiter=',')
         records = []
         for row in csv_reader:
+            print(row)
             row2 = [r.replace('%', '').replace('"', '') for r in row]
+            print('row2', row2)
             if len(row2[0]) == 3:
+                print(row2)
                 row2.insert(0,month_date)
                 # row = [r.replace('%', '').replace('"', '') for r in row]
                 records.append(row2)
@@ -73,3 +77,5 @@ for page_num in range(1,4):
         realestate_writer = csv.writer(real_estate_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for row in records:
             realestate_writer.writerow(row)
+
+
