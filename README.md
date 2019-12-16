@@ -1,6 +1,6 @@
 ## NWMLS Real Estate Data Project
 
-This is a project pulls NWMLS data at the regional level down into a mysql data base. Then analytical queries are applaied and the resulst are sent out to twitter via the twitter API.
+This is a project pulls NWMLS data at the regional level down into a mysql data base. Then analytical queries are applied and the results are sent out to twitter via the twitter API.
 
 NWMLS publishes regional level Year over Year home closing data for residential and codos that resolves to some of the most local level data regarding home sales in the greater seattle area. A region in the NWMLS data is at a very granular level and each region breaks down into smaller neighborhoods. The major issue with getting this data is that NWMLS only publishes highly unstructured PDFs to the public. This project takes that 
 
