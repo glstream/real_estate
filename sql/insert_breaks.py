@@ -19,7 +19,7 @@ first_day = today.replace(day=1)
 last_month = first_day - timedelta(days=1)
 month_date = last_month.strftime("%b-%Y")
 load_month = last_month.strftime("%b")
-
+load_date = date.today().replace(day=1).strftime('%Y-%m-%d')
 
 table_list = ['res, res_condo', 'condo']
 pub_real_dir = '.././data/PUB/'
@@ -57,10 +57,11 @@ for (dirs, subDir, files) in os.walk(pub_real_dir):
             months_of_inventory = row[16]
           
             insert_query= """
-            INSERT INTO {17}_home_data_summary
+            INSERT INTO {18}_home_data_summary
             VALUES
-            ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')
-            """.format(month_year,
+            ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}', '{17}')
+            """.format(load_date,
+              month_year,
             region_id,
             new_listing_curr_year,
             new_listing_prev_year,

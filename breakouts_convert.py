@@ -10,15 +10,16 @@ first_day = today.replace(day=1)
 last_month = first_day - timedelta(days=1)
 month_date = last_month.strftime("%b-%Y")
 load_month = last_month.strftime("%b")
+load_year = last_month.strftime("%Y")
 
 r = requests.get(file_url, stream = True) 
 
 if sys.platform == 'win32':
-    pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(load_month) 
+    pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\{0}\\KCBreakouts_{1}.pdf'.format(load_year,load_month) 
 elif sys.platform == 'darwin':
-    pdf_all = "/Users/glstream/Documents/GitHub/home_prices/real_estate/pdfs/KCBreakouts_{}.pdf".format(load_month)
+    pdf_all = "/Users/glstream/Documents/GitHub/home_prices/real_estate/pdfs/{0}/KCBreakouts_{1}.pdf".format(load_year,load_month)
 elif sys.platform == 'linux':
-    pdf_all  = "/home/pi/Documents/project-file/real_estate/pdfs/KCBreakouts_{}.pdf".format(load_month)  
+    pdf_all  = "/home/pi/Documents/project-file/real_estate/pdfs/{0}/KCBreakouts_{1}.pdf".format(load_year, load_month)  
 #GET PDF FILE
 r = requests.get(file_url, stream = True) 
   
@@ -32,7 +33,7 @@ with open(pdf_all,"wb") as pdf:
 #WRITE PDF FILE TO CSV
 for page_num in range(1,4):
 
-    pdf_dir = pdf_dir
+    pdf_dir = '{}'.format(pdf_dir)
     raw_dir = raw_dir
     out_dir = out_dir
 

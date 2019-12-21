@@ -1,6 +1,6 @@
 import mysql.connector
 import sys, csv, os, sys
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from priv import *  
 #configs for database
 
@@ -12,17 +12,15 @@ db = mysql.connector.connect(
 )
 print('Connected to database \n')
 cur = db.cursor()
+enteredDateString = '{}-{}'.format(sys.argv[1], sys.argv[2])
+enteredDate = datetime.strptime(enteredDateString, '%b-%Y')
+load_date = enteredDate.strftime('%Y-%m-%d')
 
-today = date.today()
-first_day = today.replace(day=1)
-last_month = first_day - timedelta(days=1)
-month_date = last_month.strftime("%b-%Y")
-load_month = last_month.strftime("%b")
-
-print(load_month)
+bkfl_load_month = sys.argv[1].upper()
+bkfl_load_year = sys.argv[2]
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = '.././data/PUB'
-bkfl_load_month = sys.argv[1]
+pub_real_dir = '.././data/PUB/{}'.format(bkfl_load_year)
+
 files = ['KCBreakouts_{}_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES.txt'.format(bkfl_load_month)]
 
 for file in files:
@@ -58,10 +56,11 @@ for file in files:
                 months_of_inventory = row[16]
                 
                 insert_query= """
-                INSERT INTO {17}_home_data_summary
+                INSERT INTO {18}_home_data_summary
                 VALUES
-                ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')
-                """.format(month_year,
+                ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}', '{17}')
+                """.format(load_date,
+                    month_year,
                 region_id,
                 new_listing_curr_year,
                 new_listing_prev_year,
