@@ -16,10 +16,15 @@ enteredDateString = '{}-{}'.format(sys.argv[1], sys.argv[2])
 enteredDate = datetime.strptime(enteredDateString, '%b-%Y')
 load_date = enteredDate.strftime('%Y-%m-%d')
 
-bkfl_load_month = sys.argv[1].upper()
+bkfl_load_month = sys.argv[1]
 bkfl_load_year = sys.argv[2]
 table_list = ['res, res_condo', 'condo']
-pub_real_dir = '.././data/PUB/{}'.format(bkfl_load_year)
+if sys.platform == 'win32': 
+	pub_real_dir = '.././data/PUB/{}'.format(bkfl_load_year)
+elif sys.platform == 'linux':
+	pub_real_dir ='/home/pi/Documents/project-file/real_estate/data/PUB/{}'.format(bkfl_load_year) 
+
+print(pub_real_dir)
 
 files = ['KCBreakouts_{}_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES_CONDO.txt'.format(bkfl_load_month), 'KCBreakouts_{}_RES.txt'.format(bkfl_load_month)]
 
@@ -84,3 +89,4 @@ for file in files:
                 db.commit()
                 # print("records commited: {}").format(row)
 db.close()
+
