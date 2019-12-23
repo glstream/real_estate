@@ -48,39 +48,39 @@ for file in files:
                 new_listing_prev_year = row[3]
                 total_active_curr_year = row[4]
                 total_active_prev_year = row[5]
-                percent_chg_total_active = row[6]
+                percent_chg_total_active = row[6].replace('%', '')
                 pending_curr_year = row[7]
                 pending_prev_year = row[8]
-                percent_chg_total_pending = row[9]
+                percent_chg_total_pending = row[9].replace('%', '')
                 closed_curr_year = row[10]
                 closed_prev_year = row[11]
-                percent_chg_total_closed = row[12]
-                median_price_curr_year = row[13]
-                median_price_prev_year = row[14]
-                precent_chg_median_price = row[15]
-                months_of_inventory = row[16]
+                percent_chg_total_closed = row[12].replace('%', '')
+                median_price_curr_year = row[13].replace('$', '').replace(',', '')
+                median_price_prev_year = row[14].replace('$', '').replace(',', '')
+                precent_chg_median_price = row[15].replace('%', '')
+                months_of_inventory = row[16] if (row[16] != '#DIV/0!' and row[16] != 'N/A') else 0.00
                 
                 insert_query= """
                 INSERT INTO {18}_home_data_summary
                 VALUES
-                ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}', '{17}')
+                ('{0}','{1}','{2}',{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16}, {17})
                 """.format(load_date,
                     month_year,
                 region_id,
-                new_listing_curr_year,
-                new_listing_prev_year,
-                total_active_curr_year,
-                total_active_prev_year,
-                percent_chg_total_active,
-                pending_curr_year,
-                pending_prev_year,
-                percent_chg_total_pending,
-                closed_curr_year,
-                closed_prev_year,
-                percent_chg_total_closed,
-                median_price_curr_year,
-                median_price_prev_year,
-                precent_chg_median_price,
+                int(new_listing_curr_year),
+                int(new_listing_prev_year),
+                int(total_active_curr_year),
+                int(total_active_prev_year),
+                float(percent_chg_total_active),
+                int(pending_curr_year),
+                int(pending_prev_year),
+                float(percent_chg_total_pending),
+                int(closed_curr_year),
+                int(closed_prev_year),
+                float(percent_chg_total_closed),
+                int(median_price_curr_year),
+                int(median_price_prev_year),
+                float(precent_chg_median_price),
                 months_of_inventory,
                 table)
 
