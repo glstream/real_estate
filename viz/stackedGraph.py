@@ -383,7 +383,7 @@ for table in table_list:
     full_file = vizpath
     
     #TWEETING IMAGE
-    formatted_message = """{0}\nMedian {1}  by Month
+    formatted_message = """{0}\nMedian {1} Prices by Month
                         #Seattle #seattlerealestate #realestate""".format(display_month_date, table[2])
     image = open(full_file, 'rb')
     response = twitter.upload_media(media=image)
