@@ -377,8 +377,9 @@ for table in table_list:
     plt.tight_layout()
     # plt.show()
     vizfile = '{0}_{1}.png'.format(table[0], load_month_date)
-    print(pathlib.Path(viz_dir, vizfile))
-    fig.savefig(pathlib.Path(viz_dir, vizfile), dpapi=1200)
+    vizpath = '{0}/{1}'.format(viz_dir, vizfile)
+    print(vizpath)
+    fig.savefig(vizpath, dpapi=1200)
     full_file = pathlib.Path(viz_dir, vizfile)
     
     #TWEETING IMAGE
