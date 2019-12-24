@@ -382,7 +382,7 @@ for table in table_list:
     fig.savefig(vizpath, dpapi=1200)
     full_file = vizpath
     
-    TWEETING IMAGE
+    #TWEETING IMAGE
     formatted_message = """{0}\nMedian {1}  by Month
                         #Seattle #seattlerealestate #realestate""".format(display_month_date, table[2])
     image = open(full_file, 'rb')
