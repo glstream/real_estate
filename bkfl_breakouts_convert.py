@@ -1,19 +1,19 @@
 #WRITE PDF FILE TO CSV
-import csv, tabula
-
-bkfl_year_months = [['Jul', 'Jul-2019'],['Aug', 'Aug-2019'],['Sep', 'Sep-2019'], ['Oct', 'Oct-2019']]
+import csv, tabula,sys
+from OS_NAME_PATHS import *
+bkfl_year_months = [['Jul', 'Jul-2019', '2019'],['Aug', 'Aug-2019', '2019'],['Sep', 'Sep-2019', '2019'], ['Oct', 'Oct-2019', '2019']]
 
 year_month = 'Sep'
 month_date = 'Sep-2019'
-
+load_year = '2019'
 for year_month in bkfl_year_months:
 
     if sys.platform == 'win32':
-        pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\KCBreakouts_{}.pdf'.format(year_month[0]) 
+        pdf_all = 'C:\\Users\\grayson\\Documents\\project-folder\\realestate\\real_estate\\pdfs\\{0}\\KCBreakouts_{1}.pdf'.format(year_month[2], year_month[0]) 
     elif sys.platform == 'darwin':
-        pdf_all = "/Users/glstream/Documents/GitHub/home_prices/real_estate/pdfs/KCBreakouts_{}.pdf".format(year_month[0])
+        pdf_all = "/Users/glstream/Documents/GitHub/home_prices/real_estate/pdfs/{0}/KCBreakouts_{1}.pdf".format(year_month[2], year_month[0])
     elif sys.platform == 'linux':
-        pdf_all  = "/home/pi/Documents/project-file/real_estate/pdfs/KCBreakouts_{}.pdf".format(year_month[0])  
+        pdf_all  = "/home/pi/Documents/project-file/real_estate/pdfs/{0}/KCBreakouts_{1}.pdf".format(year_month[2], year_month[0])  
 
     for page_num in range(1,4):
 
@@ -39,7 +39,7 @@ for year_month in bkfl_year_months:
         out_file = out_dir + out
 
         # tables = tabula.read_pdf(pdf_all, pages = str(page_num), multiple_tables = True)
-        tabula.convert_into(pdf_all, raw_file, pages=str(page_num))
+        tabula.convert_into(pdf_all, raw_file, lattice=True, output_format="csv", pages=str(page_num))
 
         #CLEAN AND PREP CSV FILE
         with open(raw_file, 'r') as csv_file:
