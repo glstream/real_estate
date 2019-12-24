@@ -377,16 +377,16 @@ for table in table_list:
     plt.tight_layout()
     # plt.show()
     vizfile = '{0}_{1}.png'.format(table[0], load_month_date)
-
+    print(pathlib.Path(viz_dir, vizfile))
     fig.savefig(pathlib.Path(viz_dir, vizfile), dpapi=1200)
     full_file = pathlib.Path(viz_dir, vizfile)
     
     #TWEETING IMAGE
-    formatted_message = """{0}\nMedian {1}  by Month
-                        #Seattle #seattlerealestate #realestate""".format(display_month_date, table[2])
-    image = open(full_file, 'rb')
-    response = twitter.upload_media(media=image)
+    # formatted_message = """{0}\nMedian {1}  by Month
+    #                     #Seattle #seattlerealestate #realestate""".format(display_month_date, table[2])
+    # image = open(full_file, 'rb')
+    # response = twitter.upload_media(media=image)
 
-    twitter.update_status(status=formatted_message, media_ids=[response['media_id']])
-    print("Tweeted: {}".format(formatted_message))
+    # twitter.update_status(status=formatted_message, media_ids=[response['media_id']])
+    # print("Tweeted: {}".format(formatted_message))
 db.close()
