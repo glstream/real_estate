@@ -66,7 +66,7 @@ table_list = [['res', 'Residential', 'SFH'], ['res_condo', 'Mixed', 'SFH/Condo']
 for table in table_list:
     #     #query for database
     viz_query= """
-    select  month_year, dr.region_name, median_price_curr_year, median_price_prev_year
+    select  monthname(load_date), dr.region_name, median_price_curr_year, median_price_prev_year
     from {0}_home_data_summary rs
     inner join dim_regions dr on rs.region_id = dr.region_id
     where 1=1
@@ -79,7 +79,7 @@ for table in table_list:
         os.makedirs(viz_dir)
         print("Directory {} Created".format(viz_dir))
     else:    
-        print("Directory {} Created".format(viz_dir))
+        print("Directory {} already Created".format(viz_dir))
 
     #change the tuple return to 
     df = pd.DataFrame( [[ij for ij in i] for i in rows] )
@@ -157,7 +157,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects1b = ax1.bar(x - width/2, 
                             w_seattle_last_year_median, 
@@ -165,7 +165,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax1.set_xticks(x)
     ax1.xaxis.set_ticklabels(labels,size=8)
     ax1.yaxis.set_ticklabels(labels,size=8)
@@ -189,7 +189,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects2b = ax2.bar(x - width/2, 
                             se_seattle_last_year_median, 
@@ -197,7 +197,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax2.set_xticks(x)
     ax2.xaxis.set_ticklabels(labels,size=8)
     ax2.yaxis.set_ticklabels(labels,size=8)
@@ -221,7 +221,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects3b = ax3.bar(x - width/2, 
                             ch_seattle_last_year_median, 
@@ -229,7 +229,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax3.set_xticks(x)
     ax3.xaxis.set_ticklabels(labels,size=8)
     ax3.yaxis.set_ticklabels(labels,size=8)
@@ -254,7 +254,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects4b = ax4.bar(x - width/2, 
                             qa_seattle_last_year_median, 
@@ -262,7 +262,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax4.set_xticks(x)
     ax4.xaxis.set_ticklabels(labels,size=8)
     ax4.yaxis.set_ticklabels(labels,size=8)
@@ -285,7 +285,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects5b = ax5.bar(x - width/2, 
                             bg_seattle_last_year_median, 
@@ -293,7 +293,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax5.set_xticks(x)
     ax5.xaxis.set_ticklabels(labels,size=8)
     ax5.yaxis.set_ticklabels(labels,size=8)
@@ -316,7 +316,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects6b = ax6.bar(x - width/2, 
                             n_seattle_last_year_median, 
@@ -324,7 +324,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax6.set_xticks(x)
     ax6.xaxis.set_ticklabels(labels,size=8)
     ax6.yaxis.set_ticklabels(labels,size=8)
@@ -347,7 +347,7 @@ for table in table_list:
                             color="blue",
                             edgecolor="black", 
                             alpha=.8,
-                            label='Current Year')
+                            label='2019')
 
     rects7b = ax7.bar(x - width/2, 
                             sw_seattle_last_year_median, 
@@ -355,7 +355,7 @@ for table in table_list:
                             color="gray",
                             edgecolor="black", 
                             alpha=.7,
-                            label='Previous Year')
+                            label='2018')
     ax7.set_xticks(x)
     ax7.xaxis.set_ticklabels(labels,size=8)
     ax7.yaxis.set_ticklabels(labels,size=8)
