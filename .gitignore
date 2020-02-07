@@ -2,3 +2,5 @@ tweet/auth.py
 sql/priv.py
 viz/auth.py
 __pycache__
+tweet\__pycache__
+sql\__pycache__
