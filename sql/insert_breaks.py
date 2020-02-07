@@ -15,9 +15,10 @@ last_month = first_day - timedelta(days=1)
 month_date = last_month.strftime("%b-%Y")
 load_month = last_month.strftime("%b")
 load_date = last_month.replace(day=1).strftime("%Y-%m-%d")
+load_year = last_month.strftime("%Y")
 
 table_list = ["res", "res_condo", "condo"]
-pub_real_dir = ".././data/PUB/2019"
+pub_real_dir = ".././data/PUB/{}".format(load_year)
 
 for (dirs, subDir, files) in os.walk(pub_real_dir):
     for file in files:
